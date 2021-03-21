@@ -17,18 +17,41 @@ public class Przeciazanie {
 	
 	public static void Dane(String dane,int ifName)
 	{
-		
+		String[] divineDane = dane.split(" ");
+		if(ifName==1)
+		{
+			System.out.println("Imie: " + divineDane[0]);
+			System.out.println("Nazwisko: " + divineDane[1]);
+
+		}
+		else if(ifName==2)
+		{
+			System.out.println("Pierwsze Imie: " + divineDane[0]);
+			System.out.println("Drugie Imie: " + divineDane[1]);
+			System.out.println("Nazwisko: " + divineDane[2]);
+		}
 	}
 	
-	public static void Dane(String dane,int ifDate, int ifName)
+	public static void Dane(String dane, String a)
+	{
+		String[] divineDate = dane.split("\\.");
+		int day=0,month=0;
+		day=Integer.parseInt(divineDate[0]);
+		month=Integer.parseInt(divineDate[1]);
+		String months[]= {"Styczen","Luty","Marzec","Kwiecen","Maj","Czerwiec","Lipiec","Sierpien","Wrzesien","Paxdziernik","Listopad","Grudzien"};
+		System.out.println("Urodziles sie " + day + " " + months[month] + " " + divineDate[2] + " roku");
+	}
+	
+	public static int[] Dane(String dane,int[] ifNameDate)
 	{
 		for(int x=0;x<dane.length();x++)
 		{
 			char myStrCharacter = dane.charAt(x);//przypisanie znaku
 			if(myStrCharacter == ' ')//sprzawdzanie czy dany znak slowa jest taki sam znak podslowa
-				ifName++;
+				ifNameDate[0]++;
 			if(myStrCharacter == '.')//sprzawdzanie czy dany znak slowa jest taki sam znak podslowa
-				ifDate++;
+				ifNameDate[1]++;
 		}
+		return ifNameDate;
 	}
 }
